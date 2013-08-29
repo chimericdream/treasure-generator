@@ -31,6 +31,26 @@
         </footer>
         <script src="{{ js_path }}/compiled/scripts.min.js"></script>
         <script>
+            $('#edition').change(function(){
+                showHideEditionInfo();
+            });
+
+            function showHideEditionInfo() {
+                var val = $('#edition').val();
+                if (val == 'Pathfinder') {
+                    $('.DnD30, .DnD35, .DnD40').hide();
+                    $('.Pathfinder').show();
+                }
+                if (val == 'DnD35') {
+                    $('.DnD30, .Pathfinder, .DnD40').hide();
+                    $('.DnD35').show();
+                }
+            }
+            $(document).ready(function(){
+                showHideEditionInfo();
+            });
+        </script>
+        <script>
             var analyticsFileTypes = ['ods','pdf','doc','txt'];
             var analyticsEventTracking = 'enabled';
         </script>
