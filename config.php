@@ -9,16 +9,26 @@ if (in_array($ip, $myIps)) {
     error_reporting(E_ALL);
 }
 
-define('BASE_PATH',      '/home/chimericdream2/');
-define('SITE_PATH',      BASE_PATH . 'worldofpannotia.com/');
-define('PUBLIC_DIR',     SITE_PATH . 'public_html/');
-define('ROOT_DIR', PUBLIC_DIR);
-define('SESSION_NAME', 'tgen');
-
-define('APP_DIR', ROOT_DIR . 'tools/' . SESSION_NAME);
-
-define('APP_URL', 'http://www.worldofpannotia.com/tools/' . SESSION_NAME . '/');
-define('SITE_URL', APP_URL);
+if (strpos('tgen_dev', $_SERVER['HTTP_HOST']) !== 0 || $_SERVER['HTTP_HOST'] == 'tgen.local.dev') {
+    error_reporting(E_ALL);
+    define('BASE_PATH',    '/Users/bill/Sites/');
+    define('SITE_PATH',    BASE_PATH . 'tgen_dev/');
+    define('PUBLIC_DIR',   SITE_PATH . 'public_html/');
+    define('ROOT_DIR',     PUBLIC_DIR);
+    define('SESSION_NAME', 'tgen');
+    define('APP_DIR',      ROOT_DIR);
+    define('APP_URL',      'http://tgen.local.dev/');
+    define('SITE_URL',     APP_URL);
+} else {
+    define('BASE_PATH',    '/home/chimericdream2/');
+    define('SITE_PATH',    BASE_PATH . 'tgen.worldofpannotia.com/');
+    define('PUBLIC_DIR',   SITE_PATH . 'public_html/');
+    define('ROOT_DIR',     PUBLIC_DIR);
+    define('SESSION_NAME', 'tgen');
+    define('APP_DIR',      ROOT_DIR . 'tools/' . SESSION_NAME);
+    define('APP_URL',      'http://www.worldofpannotia.com/tools/' . SESSION_NAME . '/');
+    define('SITE_URL',     APP_URL);
+}
 
 define('DB_USER', 'worldofpannotia');
 define('DB_NAME', DB_USER);
