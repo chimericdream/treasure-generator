@@ -7,18 +7,20 @@ if (isset($_POST['edition'])) {
     $treasure->loadToView($templatevars);
 } else {
     $options = array(
-        'edition' => '35',
-        'mode35'  => 'DMG',
-        'cr'      => '1',
+        'edition'    => '35',
+        'mode35'     => 'DMG',
+        'cr'         => '1',
         'multiplier' => '1',
         'ed3ExtSize' => false,
-        'cursed' => false,
-        'trade' => false,
-        'drac' => false,
+        'cursed'     => false,
+        'trade'      => false,
+        'drac'       => false,
     );
     $templatevars['tgenoptions'] =  $options;
 }
 
 $mem = memory_get_usage();
 $templatevars['mem'] =  $mem;
-echo $twig->render('tgen/pages/generic.tpl', $templatevars);
+
+$template = $twig->loadTemplate('pages/generic.tpl');
+echo $template->render($templatevars);

@@ -5,6 +5,7 @@ $ip = $_SERVER['REMOTE_ADDR'];
 $myIps = array(
     '129.237.28.16',
 );
+
 if (in_array($ip, $myIps)) {
     error_reporting(E_ALL);
 }
@@ -25,8 +26,8 @@ if (strpos('tgen_dev', $_SERVER['HTTP_HOST']) !== 0 || $_SERVER['HTTP_HOST'] == 
     define('PUBLIC_DIR',   SITE_PATH . 'public_html/');
     define('ROOT_DIR',     PUBLIC_DIR);
     define('SESSION_NAME', 'tgen');
-    define('APP_DIR',      ROOT_DIR . 'tools/' . SESSION_NAME);
-    define('APP_URL',      'http://www.worldofpannotia.com/tools/' . SESSION_NAME . '/');
+    define('APP_DIR',      ROOT_DIR);
+    define('APP_URL',      'http://tgen.worldofpannotia.com/');
     define('SITE_URL',     APP_URL);
 }
 
@@ -37,36 +38,31 @@ define('DB_HOST', 'mysql.worldofpannotia.com');
 
 date_default_timezone_set('America/Chicago');
 
-/**
- * This file also includes code to register its methods as autoloaders
- * @see SPEAR/AutoloadLocal
- */
-require_once '/home/chimericdream2/worldofpannotia.com/lib/SPEAR/AutoloadLocal.php';
+require_once dirname(__FILE__) . '/lib/AutoloadLocal.php';
+AutoloadLocal::setIncludePath(array(
+    dirname(__FILE__) . '/lib',
+    dirname(__FILE__) . '/public_html/models',
+));
 
-AutoloadLocal::setIncludePath(APP_DIR);
-
-/**
- * This starts a session based on SESSION_NAME, stored in the current acct
- * @see /SPEAR/SessionLocal
- */
-require_once '/home/chimericdream2/worldofpannotia.com/lib/SPEAR/SessionLocal.php';
+require_once dirname(__FILE__) . '/lib/SessionLocal.php';
 SessionLocal::start(SESSION_NAME);
 
-define('TWIG_DIR',       SITE_PATH . 'lib/Twig-1.12.2/lib/Twig/');
-define('VIEW_PATH',      SITE_PATH . 'public_html/assets/templates');
+define('VIEW_PATH',      SITE_PATH . 'public_html/views');
 define('ASSET_PATH',     'http://assets.worldofpannotia.com/');
 define('ASSET_CSS_PATH', ASSET_PATH . '/css');
 define('ASSET_IMG_PATH', ASSET_PATH . '/images');
 define('ASSET_JS_PATH',  ASSET_PATH . '/js');
 
-require_once TWIG_DIR . 'Autoloader.php';
+require_once dirname(__FILE__) . '/lib/Twig/lib/Twig/Autoloader.php';
 Twig_Autoloader::register();
 
 $tloader = new Twig_Loader_Filesystem(VIEW_PATH);
 $twig = new Twig_Environment($tloader, array(
     'cache' => VIEW_PATH . '/compile',
     'auto_reload' => true,
+    'debug' => true,
 ));
+$twig->addExtension(new Twig_Extension_Debug());
 
 $templatevars = array(
     'asset_path'  => ASSET_PATH,
@@ -76,5 +72,3 @@ $templatevars = array(
     'site_url'    => SITE_URL,
     'view_path'   => VIEW_PATH,
 );
-
-$logger = new Logger(APP_DIR . '/' . SESSION_NAME . '.log');
