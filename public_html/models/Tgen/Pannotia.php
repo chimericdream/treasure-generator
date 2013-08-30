@@ -6,10 +6,16 @@ class Tgen_Pannotia extends Tgen {
         'multiplier' => 1,
         'cr'         => 1,
         'cursed'     => false,
-        'ed3ExtSize' => false,
+        'extSize'    => false,
     );
 
-    public function __construct() {}
+    public function __construct(array $options) {
+        $this->multiplier    = $options['multiplier'];
+        $this->trade         = $options['trade'];
+        $this->drac          = $options['drac'];
+        $this->cursed        = $options['cursed'];
+        $this->extSize       = (bool) $options['extSize'];
+    }
 
     public function generate() {
         $this->_setOptions();
@@ -119,6 +125,21 @@ class Tgen_Pannotia extends Tgen {
             if ($this->options['cr'] < 1 || $this->options['cr'] > self::MAX_CR) {
                 $this->options['cr'] = 1;
             }
+        }
+        if (isset($_POST['pannotia_Mult']) && ctype_digit($_POST['pannotia_Mult'])) {
+            $this->options['multiplier'] = (int) $_POST['pannotia_Mult'];
+            if ($this->options['multiplier'] < 1) {
+                $this->options['multiplier'] = 1;
+            }
+            if ($this->options['multiplier'] > self::MAX_MULT) {
+                $this->options['multiplier'] = self::MAX_MULT;
+            }
+        }
+        if (isset($_POST['pannotia_ExtSize'])) {
+            $this->options['extSize'] = true;
+        }
+        if (isset($_POST['pannotia_Cursed'])) {
+            $this->options['cursed'] = true;
         }
     }
 
