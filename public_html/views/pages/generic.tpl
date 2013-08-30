@@ -37,12 +37,14 @@
 
             function showHideEditionInfo() {
                 var val = $('#edition').val();
-                if (val == 'Pathfinder') {
-                    $('.DnD30, .DnD35, .DnD40').hide();
+                if (val == 'Pannotia') {
+                    $('.Pathfinder, .DnD30, .DnD35, .DnD40').hide();
+                    $('.Pannotia').show();
+                } else if (val == 'Pathfinder') {
+                    $('.Pannotia, .DnD30, .DnD35, .DnD40').hide();
                     $('.Pathfinder').show();
-                }
-                if (val == 'DnD35') {
-                    $('.DnD30, .Pathfinder, .DnD40').hide();
+                } else if (val == 'DnD35' || val == '35') {
+                    $('.Pannotia, .DnD30, .Pathfinder, .DnD40').hide();
                     $('.DnD35').show();
                 }
             }

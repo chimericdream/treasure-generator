@@ -405,6 +405,7 @@ input[type="submit"].btn.btn-mini {
                     <!--option value="30">3.0</option-->
                     <option value="35"{% if (tgenoptions.edition == "35") or (tgenoptions.edition == "35MIC") %} selected="selected"{% endif %}>3.5</option>
                     <!--option value="40">4.0</option-->
+                    <option value="Pannotia"{% if (tgenoptions.edition == "Pannotia") %} selected="selected"{% endif %}>Pannotia</option>
                 </select>
                 <p>
                     Please select which edition of
@@ -423,7 +424,7 @@ input[type="submit"].btn.btn-mini {
             </div>
         </div>
 
-        <div class="control-group">
+        <div class="control-group DnD35">
             <label class="control-label" for="mode35">Generation Method:</label>
             <div class="controls">
                 <select name="mode35" id="mode35">
@@ -443,7 +444,7 @@ input[type="submit"].btn.btn-mini {
         </div>
     </fieldset>
 
-    <fieldset id="dnd3">
+    <fieldset class="DnD35">
         <legend>Encounter Information</legend>
 
         <div class="control-group">
