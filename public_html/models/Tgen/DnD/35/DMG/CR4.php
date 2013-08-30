@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_CR4 extends Tgen_DnD_35 {
+class Tgen_DnD_35_DMG_CR4 extends Tgen_DnD_35_DMG {
     public function __construct(array $options) {
         parent::__construct($options);
     } // end __construct()

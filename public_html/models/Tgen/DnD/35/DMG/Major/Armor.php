@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Major_Armor extends Tgen_DnD_35_Armor {
+class Tgen_DnD_35_DMG_Major_Armor extends Tgen_DnD_35_DMG_Armor {
     public function generate() {
         $this->_size = $this->_getSize();
         $modifier = 0;

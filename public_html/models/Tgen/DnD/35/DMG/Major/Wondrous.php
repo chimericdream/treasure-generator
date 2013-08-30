@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Major_Wondrous extends Tgen_DnD_35_Wondrous {
+class Tgen_DnD_35_DMG_Major_Wondrous extends Tgen_DnD_35_DMG_Wondrous {
     protected $_itemArray = array(
         array(
             'desc'  => "Dimensional shackles (28,000 gp)",

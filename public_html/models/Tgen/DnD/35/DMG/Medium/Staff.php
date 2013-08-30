@@ -1,9 +1,9 @@
 <?php
-class Tgen_DnD_35_Medium_Staff extends Tgen_DnD_35_Medium {
+class Tgen_DnD_35_DMG_Medium_Staff extends Tgen_DnD_35_DMG_Medium {
     protected $_hoard  = null;
     protected $_staff = null;
 
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 

@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Medium_Weapon extends Tgen_DnD_35_Weapon {
+class Tgen_DnD_35_DMG_Medium_Weapon extends Tgen_DnD_35_DMG_Weapon {
     public function generate() {
         $this->_size = $this->_getSize();
         $baseWeapon = $this->_getBaseWeapon();

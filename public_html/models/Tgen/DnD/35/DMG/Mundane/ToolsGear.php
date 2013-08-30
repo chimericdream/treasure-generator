@@ -1,9 +1,9 @@
 <?php
-class Tgen_DnD_35_Mundane_ToolsGear extends Tgen_DnD_35_Mundane {
+class Tgen_DnD_35_DMG_Mundane_ToolsGear extends Tgen_DnD_35_DMG_Mundane {
     protected $_hoard = null;
     protected $_item  = null;
 
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 

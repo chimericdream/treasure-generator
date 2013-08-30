@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Art extends Tgen_DnD_35 {
+class Tgen_DnD_35_DMG_Art extends Tgen_DnD_35_DMG {
     protected $_hoard     = null;
     protected $_artObject = null;
     protected $_artArray  = array(
@@ -59,7 +59,7 @@ class Tgen_DnD_35_Art extends Tgen_DnD_35 {
         ),
     );
 
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 

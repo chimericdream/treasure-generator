@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Weapon extends Tgen_DnD_35 {
+class Tgen_DnD_35_DMG_Weapon extends Tgen_DnD_35_DMG {
     protected $_hoard    = null;
     protected $_weapon   = '';
     protected $bonus     = 1;
@@ -18,7 +18,7 @@ class Tgen_DnD_35_Weapon extends Tgen_DnD_35 {
         10 => 200000,
     );
 
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 

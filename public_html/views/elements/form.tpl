@@ -508,7 +508,7 @@ input[type="submit"].btn.btn-mini {
         <div class="control-group">
             <label class="control-label" for="DnD_35_MIC_CR">Challenge Rating</label>
             <div class="controls">
-                <select name="DnD_35_DMG_CR" id="DnD_35_MIC_CR">
+                <select name="DnD_35_MIC_CR" id="DnD_35_MIC_CR">
                     <option value="1"{% if tgenoptions.cr == "1" %} selected="selected"{% endif %}>1</option>
                     <option value="2"{% if tgenoptions.cr == "2" %} selected="selected"{% endif %}>2</option>
                     <option value="3"{% if tgenoptions.cr == "3" %} selected="selected"{% endif %}>3</option>

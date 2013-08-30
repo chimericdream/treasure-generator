@@ -1,10 +1,10 @@
 <?php
-class Tgen_DnD_35_Scroll extends Tgen_DnD_35 {
+class Tgen_DnD_35_DMG_Scroll extends Tgen_DnD_35_DMG {
     protected $_hoard  = null;
     protected $_item   = null;
     protected $_scroll = null;
 
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 
@@ -32,9 +32,9 @@ class Tgen_DnD_35_Scroll extends Tgen_DnD_35 {
     protected function _getScrollType() {
         $d100 = $this->_getDieRoll(1, 100);
         if ($d100 > 70) { // Divine Scroll
-            $this->_scroll = new Tgen_DnD_35_Scroll_Divine($this->_hoard);
+            $this->_scroll = new Tgen_DnD_35_DMG_Scroll_Divine($this->_hoard);
         } else { // Arcane Scroll
-            $this->_scroll = new Tgen_DnD_35_Scroll_Arcane($this->_hoard);
+            $this->_scroll = new Tgen_DnD_35_DMG_Scroll_Arcane($this->_hoard);
         }
     }
 

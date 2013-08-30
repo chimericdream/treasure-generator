@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Medium_Wondrous extends Tgen_DnD_35_Wondrous {
+class Tgen_DnD_35_DMG_Medium_Wondrous extends Tgen_DnD_35_DMG_Wondrous {
     protected $_itemArray = array(
         array(
             'desc'  => "Boots of levitation (7,500 gp)",

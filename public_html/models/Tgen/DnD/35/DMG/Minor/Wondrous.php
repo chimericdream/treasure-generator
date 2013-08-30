@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Minor_Wondrous extends Tgen_DnD_35_Wondrous {
+class Tgen_DnD_35_DMG_Minor_Wondrous extends Tgen_DnD_35_DMG_Wondrous {
     protected $_itemArray = array(
         array(
             'desc'  => "Feather token, anchor (50 gp)",

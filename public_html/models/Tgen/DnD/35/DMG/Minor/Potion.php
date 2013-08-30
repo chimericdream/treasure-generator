@@ -1,9 +1,9 @@
 <?php
-class Tgen_DnD_35_Minor_Potion extends Tgen_DnD_35_Minor {
+class Tgen_DnD_35_DMG_Minor_Potion extends Tgen_DnD_35_DMG_Minor {
     protected $_hoard  = null;
     protected $_potion = null;
     
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
     

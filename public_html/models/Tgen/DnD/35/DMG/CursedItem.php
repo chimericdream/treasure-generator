@@ -1,9 +1,9 @@
 <?php
-class Tgen_DnD_3_CursedItem extends Tgen_DnD_3 {
+class Tgen_DnD_35_DMG_CursedItem extends Tgen_DnD_35_DMG {
     protected $_hoard = null;
     protected $_item  = null;
 
-    public function __construct(Tgen_DnD $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 

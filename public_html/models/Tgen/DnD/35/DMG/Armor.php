@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Armor extends Tgen_DnD_35 {
+class Tgen_DnD_35_DMG_Armor extends Tgen_DnD_35_DMG {
     protected $_hoard    = null;
     protected $_armor    = '';
     protected $bonus     = 1;
@@ -19,7 +19,7 @@ class Tgen_DnD_35_Armor extends Tgen_DnD_35 {
         10 => 100000,
     );
 
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 
@@ -102,9 +102,9 @@ class Tgen_DnD_35_Armor extends Tgen_DnD_35 {
         if ($die == 1) {
             $die = $this->_getDieRoll(1, 100);
             if ($die > 80) {
-                $scroll = new Tgen_DnD_35_Scroll_Arcane($this->_hoard);
+                $scroll = new Tgen_DnD_35_DMG_Scroll_Arcane($this->_hoard);
             } else {
-                $scroll = new Tgen_DnD_35_Scroll_Divine($this->_hoard);
+                $scroll = new Tgen_DnD_35_DMG_Scroll_Divine($this->_hoard);
             }
             $spell = 'with a scroll of: ' . $scroll->generateMedium() . ' ';
             $spell = preg_replace('/((Divine|Arcane) scroll\(s\) of: )/', '', $spell);

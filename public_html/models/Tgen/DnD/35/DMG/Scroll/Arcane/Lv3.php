@@ -1,9 +1,9 @@
 <?php
-class Tgen_DnD_35_Scroll_Arcane_Lv3 extends Tgen_DnD_35_Scroll_Arcane {
+class Tgen_DnD_35_DMG_Scroll_Arcane_Lv3 extends Tgen_DnD_35_DMG_Scroll_Arcane {
     protected $_hoard = null;
     protected $_item  = null;
 
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 

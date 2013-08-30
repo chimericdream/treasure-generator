@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35_Gem extends Tgen_DnD_35 {
+class Tgen_DnD_35_DMG_Gem extends Tgen_DnD_35_DMG {
     protected $_hoard    = null;
     protected $_gem      = null;
     protected $_gemArray = array(
@@ -89,7 +89,7 @@ class Tgen_DnD_35_Gem extends Tgen_DnD_35 {
         ),
     );
 
-    public function __construct(Tgen_DnD_35 $hoard) {
+    public function __construct(Tgen_DnD_35_DMG $hoard) {
         $this->_hoard = $hoard;
     }
 
