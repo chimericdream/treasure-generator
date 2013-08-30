@@ -7,7 +7,7 @@ if (isset($_POST['edition'])) {
     $treasure->loadToView($templatevars);
 } else {
     $options = array(
-        'edition'    => '35',
+        'edition'    => '',
         'mode35'     => 'DMG',
         'cr'         => '1',
         'multiplier' => '1',
