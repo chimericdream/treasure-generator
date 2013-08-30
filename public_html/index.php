@@ -1,20 +1,19 @@
 <?php
 require_once dirname(__FILE__) . '/../config.php';
 
-if (isset($_POST['edition'])) {
-    $treasure = new Tgen_DnD();
+if (isset($_POST['ruleset']) && ctype_alpha($_POST['ruleset']) && class_exists('Tgen_' . $_POST['ruleset'])) {
+    $class = 'Tgen_' . $_POST['ruleset'];
+    $treasure = new $class();
     $treasure->generate();
     $treasure->loadToView($templatevars);
 } else {
     $options = array(
-        'edition'    => '',
-        'mode35'     => 'DMG',
+        'ruleset'    => '',
         'cr'         => '1',
         'multiplier' => '1',
-        'ed3ExtSize' => false,
+        'extSize'    => false,
         'cursed'     => false,
         'trade'      => false,
-        'drac'       => false,
     );
     $templatevars['tgenoptions'] =  $options;
 }
