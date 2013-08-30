@@ -46,6 +46,8 @@
                 } else if (val == 'DnD35' || val == '35') {
                     $('.Pannotia, .DnD30, .Pathfinder, .DnD40').hide();
                     $('.DnD35').show();
+                } else {
+                    $('.Pannotia, .DnD30, .DnD35, .Pathfinder, .DnD40').hide();
                 }
             }
             $(document).ready(function(){
