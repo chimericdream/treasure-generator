@@ -10,7 +10,7 @@ if (in_array($ip, $myIps)) {
     error_reporting(E_ALL);
 }
 
-if (strpos('tgen_dev', $_SERVER['HTTP_HOST']) !== 0 || $_SERVER['HTTP_HOST'] == 'tgen.local.dev') {
+if (strpos('tgen_dev', $_SERVER['HTTP_HOST']) !== false || $_SERVER['HTTP_HOST'] == 'tgen.local.dev') {
     error_reporting(E_ALL);
     define('BASE_PATH',    '/Users/bill/Sites/');
     define('SITE_PATH',    BASE_PATH . 'tgen_dev/');
