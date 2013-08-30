@@ -402,8 +402,9 @@ input[type="submit"].btn.btn-mini {
             <label class="control-label" for="edition">Edition:</label>
             <div class="controls">
                 <select name="edition" id="edition">
+                    <option value=""{% if tgenoptions.edition == "" %} selected="selected"{% endif %}>Select rule set...</option>
                     <!--option value="30">3.0</option-->
-                    <option value="35"{% if (tgenoptions.edition == "35") or (tgenoptions.edition == "35MIC") %} selected="selected"{% endif %}>3.5</option>
+                    <option value="35"{% if (tgenoptions.edition == "35") or (tgenoptions.edition == "35MIC") %} selected="selected"{% endif %}>D&amp;D 3.5</option>
                     <!--option value="40">4.0</option-->
                     <option value="Pannotia"{% if (tgenoptions.edition == "Pannotia") %} selected="selected"{% endif %}>Pannotia</option>
                 </select>
