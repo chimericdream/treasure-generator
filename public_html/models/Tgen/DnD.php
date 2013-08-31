@@ -1,62 +1,68 @@
 <?php
 class Tgen_DnD extends Tgen {
-    const ED3_MAX_CR = 20;
+    const ED3_MAX_CR   = 20;
     const ED3_MAX_MULT = 100;
-    private $options = array(
-        'multiplier' => 1,
-        'mode35'     => '',
-        'cr'         => 1,
-        'edition'    => '',
-        'cursed'     => false,
-        'trade'      => false,
-        'drac'       => false,
-        'ed3ExtSize' => false,
+
+    public    $cpValue    = 0;       // Total CP value for the hoard
+
+    public    $multiplier = 1;
+    public    $trade      = false;
+    public    $drac       = false;
+    public    $cursed     = false;
+    public    $extSize    = false;
+
+    public    $coins      = array(
+            'cp' => 0,
+            'sp' => 0,
+            'gp' => 0,
+            'pp' => 0,
     );
+    public    $goods      = array();
+    public    $items      = array();
+    public    $tradeGoods = array();
+    public    $options    = array();
 
-    public function __construct() {}
-
-    public function generate() {
-        $this->_validateForm();
-        $classname = $this->_getClassName();
-        if (class_exists($classname)) {
-            $this->treasure = new $classname($this->options);
-            $this->treasure->generate();
-        } else {
-            echo $classname;
-            exit;
-        }
+    public function __construct(array $options) {
+        $this->multiplier = $options['multiplier'];
+        $this->trade      = $options['trade'];
+        $this->drac       = $options['drac'];
+        $this->cursed     = $options['cursed'];
+        $this->extSize    = $options['extSize'];
+        $this->options    = $options;
     }
+
+    public function generate() {}
 
     public function loadToView(array &$templatevars) {
         $this->_sortTreasure();
         $templatevars['treasure'] = true;
-        $templatevars['coins'] = $this->treasure->coins;
-        $templatevars['goods'] = $this->treasure->goods;
-        $templatevars['items'] = $this->treasure->items;
-        $templatevars['tradeGoods'] = $this->treasure->tradeGoods;
-        $templatevars['totalValue'] = $this->_formatValue($this->treasure->cpValue);
-        $templatevars['cpValue'] = $this->treasure->cpValue;
+        $templatevars['coins'] = $this->coins;
+        $templatevars['goods'] = $this->goods;
+        $templatevars['items'] = $this->items;
+        $templatevars['tradeGoods'] = $this->tradeGoods;
+        $templatevars['totalValue'] = $this->_formatValue($this->cpValue);
+        $templatevars['cpValue'] = $this->cpValue;
         $templatevars['tgenoptions'] = $this->options;
     }
 
     private function _sortTreasure() {
-        if (is_array($this->treasure->goods)) {
-            sort($this->treasure->goods);
+        if (is_array($this->goods)) {
+            sort($this->goods);
         }
-        $dupes = array_count_values($this->treasure->goods);
-        $this->treasure->goods = array_unique($this->treasure->goods);
-        foreach ($this->treasure->goods as &$item) {
+        $dupes = array_count_values($this->goods);
+        $this->goods = array_unique($this->goods);
+        foreach ($this->goods as &$item) {
             if ($dupes[$item] > 1) {
                 $item .= " [Qty: {$dupes[$item]}]";
             }
         }
         $dupes = null;
-        if (is_array($this->treasure->items)) {
-            sort($this->treasure->items);
+        if (is_array($this->items)) {
+            sort($this->items);
         }
-        $dupes = array_count_values($this->treasure->items);
-        $this->treasure->items = array_unique($this->treasure->items);
-        foreach ($this->treasure->items as &$item) {
+        $dupes = array_count_values($this->items);
+        $this->items = array_unique($this->items);
+        foreach ($this->items as &$item) {
             if ($dupes[$item] > 1) {
                 $item .= " [Qty: {$dupes[$item]}]";
             }
@@ -66,27 +72,38 @@ class Tgen_DnD extends Tgen {
     }
 
     private function _combineDuplicateTradeGoods() {
-        if (!is_array($this->treasure->tradeGoods)) {
+        if (!is_array($this->tradeGoods)) {
             return;
         }
 
-        sort($this->treasure->tradeGoods);
+        sort($this->tradeGoods);
 
         $qty      = 0;
         $i        = 0;
         $currItem = '';
         $currItemIndex = 0;
         $matches  = array();
-        $pattern  = '/^(?P<item>[^(]+) \((?P<qty>\d+)(?P<therest>.+)$/';
+        $pattern  = '/^(?P<item>[^(]+)(?: \((?P<qty>\d+)(?P<therest>.+)?\))?$/';
 
-        foreach ($this->treasure->tradeGoods as $item) {
+        foreach ($this->tradeGoods as $item) {
             if (preg_match($pattern, $item, $matches) != 0) {
                 if ($i > 0 && $currItem == $matches['item']) {
-                    $qty += $matches['qty'];
-                    //echo " --- currItem = {$currItem}; qty = {$qty}<br />";
-                    $this->treasure->tradeGoods[$currItemIndex] = $matches['item']
-                          . ' (' . $qty . $matches['therest'];
-                    unset($this->treasure->tradeGoods[$i]);
+                    if (empty($matches['qty'])) {
+                        $qty++;
+                    } else {
+                        $qty += $matches['qty'];
+                    }
+                    $this->tradeGoods[$currItemIndex] = $matches['item'];
+                    if (!empty($qty) || !empty($matches['therest'])) {
+                        if (!empty($matches['therest'])) {
+                            $this->tradeGoods[$currItemIndex] .= ' (' . $qty . $matches['therest'] . ')';
+                        } else {
+                            if ($qty > 1) {
+                                $this->tradeGoods[$currItemIndex] .= ' [Qty: ' . $qty . ']';
+                            }
+                        }
+                    }
+                    unset($this->tradeGoods[$i]);
                 } else {
                     $qty = $matches['qty'];
                     $currItem = $matches['item'];
@@ -96,7 +113,7 @@ class Tgen_DnD extends Tgen {
             $matches = array();
             $i++;
         }
-        sort($this->treasure->tradeGoods);
+        sort($this->tradeGoods);
     }
 
     private function _formatValue($cpValue) {
