@@ -41,19 +41,23 @@
             function showHideRulesetInfo() {
                 var val = $('#ruleset').val();
                 if (val == 'Pannotia') {
-                    $('.Pathfinder, .DnD').hide();
+                    $('.Pathfinder, .DnD, .DnD_30, .DnD_35_DMG, .DnD_35_MIC, .DnD_40').hide();
                     $('.Pannotia').show();
                     $('#generate-treasure').show();
+                    return;
                 } else if (val == 'Pathfinder') {
-                    $('.Pannotia, .DnD').hide();
+                    $('.Pannotia, .DnD, .DnD_30, .DnD_35_DMG, .DnD_35_MIC, .DnD_40').hide();
                     $('.Pathfinder').show();
                     $('#generate-treasure').hide();
+                    return;
                 } else if (val == 'DnD') {
-                    $('.Pannotia, .Pathfinder').hide();
+                    $('.Pannotia, .Pathfinder, .DnD_30, .DnD_35_DMG, .DnD_35_MIC, .DnD_40').hide();
                     $('.DnD').show();
+                    return;
                 } else {
-                    $('.Pannotia, .DnD, .Pathfinder').hide();
+                    $('.Pannotia, .DnD, .Pathfinder, .DnD_30, .DnD_35_DMG, .DnD_35_MIC, .DnD_40').hide();
                     $('#generate-treasure').hide();
+                    return;
                 }
             }
 
@@ -63,27 +67,32 @@
                     $('.DnD_35_DMG, .DnD_35_MIC, .DnD_40').hide();
                     $('.DnD_30').show();
                     $('#generate-treasure').hide();
+                    return;
                 } else if (val == '35_DMG') {
                     $('.DnD_30, .DnD_35_MIC, .DnD_40').hide();
                     $('.DnD_35_DMG').show();
                     $('#generate-treasure').show();
+                    return;
                 } else if (val == '35_MIC') {
                     $('.DnD_30, .DnD_35_DMG, .DnD_40').hide();
                     $('.DnD_35_MIC').show();
                     $('#generate-treasure').show();
+                    return;
                 } else if (val == '40') {
                     $('.DnD_30, .DnD_35_DMG, .DnD_35_MIC').hide();
                     $('.DnD_40').show();
                     $('#generate-treasure').hide();
+                    return;
                 } else {
                     $('.DnD_30, .DnD_35_DMG, .DnD_35_MIC, .DnD_40').hide();
                     $('#generate-treasure').hide();
+                    return;
                 }
             }
 
             $(document).ready(function(){
-                showHideRulesetInfo();
                 showHideDnDEditionInfo();
+                showHideRulesetInfo();
             });
         </script>
         <script>

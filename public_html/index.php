@@ -54,7 +54,17 @@ if (!empty($_POST)) {
             }
             break;
         case 'Pannotia':
-            $class = 'Tgen_Pannotia';
+            $cr = $_POST['Pannotia_CR'];
+            $class = 'Tgen_Pannotia_CR' . $cr;
+            $options = array(
+                'multiplier'  => (int)  $_POST['Pannotia_Mult'],
+                'extSize'     => (bool) $_POST['Pannotia_ExtSize'],
+                'cursed'      => (bool) $_POST['Pannotia_Cursed'],
+                'trade'       => false,
+                'drac'        => false,
+                'ruleset'     => 'Pannotia',
+                'cr'          => $cr,
+            );
             break;
         case 'Pathfinder':
             $class = 'Tgen_Pathfinder';

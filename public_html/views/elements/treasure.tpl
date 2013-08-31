@@ -13,7 +13,7 @@
     <h4>Goods</h4>
     <ul>
     {% for good in goods %}
-        <li>{{ good }}</li>
+        <li>{{ good | raw }}</li>
     {% else	 %}
         <li>No Goods</li>
     {% endfor %}
@@ -21,7 +21,7 @@
     <h4>Items</h4>
     <ul>
     {% for item in items %}
-        <li>{{ item }}</li>
+        <li>{{ item | raw }}</li>
     {% else	 %}
         <li>No Items</li>
     {% endfor %}
@@ -29,7 +29,7 @@
     <h4>Trade Goods</h4>
     <ul>
     {% for good in tradeGoods %}
-        <li>{{ good }}</li>
+        <li>{{ good | raw }}</li>
     {% else	 %}
         <li>No Trade Goods</li>
     {% endfor %}

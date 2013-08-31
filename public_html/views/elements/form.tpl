@@ -622,7 +622,7 @@ input[type="submit"].btn.btn-mini {
             <div class="controls">
                 <input class="checkbox" type="checkbox" value="true" id="Pannotia_ExtSize" name="Pannotia_ExtSize" {% if tgenoptions.extSize %}checked="checked" {% endif %}/>
                 <p>
-                    *DMG Only.  This will allow items to be of non-standard sizes <small>(i.e. Huge, Gargantuan, Fine, Diminutive, etc.)</small>.
+                    This will allow items to be of non-standard sizes <small>(i.e. Huge, Gargantuan, Fine, Diminutive, etc.)</small>.
                 </p>
             </div>
         </div>
