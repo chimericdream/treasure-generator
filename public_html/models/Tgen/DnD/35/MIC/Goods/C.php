@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Goods_C extends Tgen_DnD_35MIC_Goods {
+class Tgen_DnD_35_MIC_Goods_C extends Tgen_DnD_35_MIC_Goods {
     public $items = array(
         'amber',
         'amethyst',
@@ -31,4 +31,4 @@ class Tgen_DnD_35MIC_Goods_C extends Tgen_DnD_35MIC_Goods {
         'type' => 4,
         'mult' => 10,
     );
-} // end Tgen_DnD_35MIC_Goods_C
+} // end Tgen_DnD_35_MIC_Goods_C

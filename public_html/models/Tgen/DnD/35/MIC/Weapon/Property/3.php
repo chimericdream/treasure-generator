@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Weapon_Property_3 extends Tgen_DnD_35MIC_Weapon_Property {
+class Tgen_DnD_35_MIC_Weapon_Property_3 extends Tgen_DnD_35_MIC_Weapon_Property {
     public function generate() {
         if ($this->_baseWeapon['type'] == 'melee') {
             $this->_property = $this->_generateMelee();
@@ -13,8 +13,8 @@ class Tgen_DnD_35MIC_Weapon_Property_3 extends Tgen_DnD_35MIC_Weapon_Property {
     protected function _generateMelee() {
         $die = $this->_getDieRoll(1, 100);
         if ($die > 92) {
-            $prop2 = new Tgen_DnD_35MIC_Weapon_Property_2($this->_hoard, $this->_baseWeapon);
-            $prop1 = new Tgen_DnD_35MIC_Weapon_Property_1($this->_hoard, $this->_baseWeapon);
+            $prop2 = new Tgen_DnD_35_MIC_Weapon_Property_2($this->_hoard, $this->_baseWeapon);
+            $prop1 = new Tgen_DnD_35_MIC_Weapon_Property_1($this->_hoard, $this->_baseWeapon);
             $property = $prop2->generate() . ' and ' . $prop1->generate();
             unset($prop2, $prop1);
         } elseif ($die > 84) {
@@ -51,8 +51,8 @@ class Tgen_DnD_35MIC_Weapon_Property_3 extends Tgen_DnD_35MIC_Weapon_Property {
     protected function _generateRanged() {
         $die = $this->_getDieRoll(1, 100);
         if ($die > 89) {
-            $prop2 = new Tgen_DnD_35MIC_Weapon_Property_2($this->_hoard, $this->_baseWeapon);
-            $prop1 = new Tgen_DnD_35MIC_Weapon_Property_1($this->_hoard, $this->_baseWeapon);
+            $prop2 = new Tgen_DnD_35_MIC_Weapon_Property_2($this->_hoard, $this->_baseWeapon);
+            $prop1 = new Tgen_DnD_35_MIC_Weapon_Property_1($this->_hoard, $this->_baseWeapon);
             $property = $prop2->generate() . ' and ' . $prop1->generate();
             unset($prop2, $prop1);
         } elseif ($die > 78) {
@@ -77,4 +77,4 @@ class Tgen_DnD_35MIC_Weapon_Property_3 extends Tgen_DnD_35MIC_Weapon_Property {
 
         return $property;
     } // end _generateRanged()
-} // end Tgen_DnD_35MIC_Weapon_Property_3
+} // end Tgen_DnD_35_MIC_Weapon_Property_3

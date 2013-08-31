@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Armor_Property_2 extends Tgen_DnD_35MIC_Armor_Property {
+class Tgen_DnD_35_MIC_Armor_Property_2 extends Tgen_DnD_35_MIC_Armor_Property {
     public function generate() {
         if ($this->_baseArmor['type'] == 'armor') {
             $this->_property = $this->_generateArmor();
@@ -83,4 +83,4 @@ class Tgen_DnD_35MIC_Armor_Property_2 extends Tgen_DnD_35MIC_Armor_Property {
 
         return $property;
     }
-} // end Tgen_DnD_35MIC_Armor_Property_2
+} // end Tgen_DnD_35_MIC_Armor_Property_2

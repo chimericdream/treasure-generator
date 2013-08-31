@@ -1,9 +1,9 @@
 <?php
-class Tgen_DnD_35MIC_Items extends Tgen_DnD_35MIC {
+class Tgen_DnD_35_MIC_Items extends Tgen_DnD_35_MIC {
     protected $_item = '';
     protected $_hoard = null;
 
-    public function __construct(Tgen_DnD_3 $hoard) {
+    public function __construct(Tgen_DnD_35 $hoard) {
         $this->_hoard = $hoard;
     }
 
@@ -40,7 +40,7 @@ class Tgen_DnD_35MIC_Items extends Tgen_DnD_35MIC {
         if ($bonus == 1) {
             $weapon = '+1';
         } else {
-            $classname = "Tgen_DnD_35MIC_Weapon_{$bonus}";
+            $classname = "Tgen_DnD_35_MIC_Weapon_{$bonus}";
             if (class_exists($classname)) {
                 $item = new $classname($this);
                 $weapon = $item->generate($baseWeapon);
@@ -58,7 +58,7 @@ class Tgen_DnD_35MIC_Items extends Tgen_DnD_35MIC {
                 'property' => '',
             );
         } else {
-            $classname = "Tgen_DnD_35MIC_Armor_{$bonus}";
+            $classname = "Tgen_DnD_35_MIC_Armor_{$bonus}";
             if (class_exists($classname)) {
                 $item = new $classname($this, $baseArmor);
                 $armor = $item->generate();
@@ -73,14 +73,14 @@ class Tgen_DnD_35MIC_Items extends Tgen_DnD_35MIC {
     }
 
     protected function _getBaseWeapon() {
-        $weapon = new Tgen_DnD_35MIC_Weapon($this->_hoard);
+        $weapon = new Tgen_DnD_35_MIC_Weapon($this->_hoard);
         $baseWeapon = $weapon->generate();
         return $baseWeapon;
     }
 
     protected function _getBaseArmor() {
-        $armor = new Tgen_DnD_35MIC_Armor($this->_hoard, array());
+        $armor = new Tgen_DnD_35_MIC_Armor($this->_hoard, array());
         $baseArmor = $armor->generate();
         return $baseArmor;
     }
-} // end Tgen_DnD_35MIC_Items
+} // end Tgen_DnD_35_MIC_Items

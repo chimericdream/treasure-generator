@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Goods_G extends Tgen_DnD_35MIC_Goods {
+class Tgen_DnD_35_MIC_Goods_G extends Tgen_DnD_35_MIC_Goods {
     public $items = array(
         'embroidered silk and velvet mantle with moonstones',
         'sapphire pendant on a gold chain',
@@ -19,4 +19,4 @@ class Tgen_DnD_35MIC_Goods_G extends Tgen_DnD_35MIC_Goods {
         'type' => 4,
         'mult' => 1000,
     );
-} // end Tgen_DnD_35MIC_Goods_G
+} // end Tgen_DnD_35_MIC_Goods_G

@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Items_4 extends Tgen_DnD_35MIC_Items {
+class Tgen_DnD_35_MIC_Items_4 extends Tgen_DnD_35_MIC_Items {
     public function generate() {
         $die = $this->_getDieRoll(1, 100);
         if ($die > 99) {
@@ -191,4 +191,4 @@ class Tgen_DnD_35MIC_Items_4 extends Tgen_DnD_35MIC_Items {
 
         return $this->_item;
     }
-} // end Tgen_DnD_35MIC_Items_4
+} // end Tgen_DnD_35_MIC_Items_4

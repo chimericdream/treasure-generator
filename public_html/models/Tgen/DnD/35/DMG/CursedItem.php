@@ -3,7 +3,7 @@ class Tgen_DnD_35_DMG_CursedItem extends Tgen_DnD_35_DMG {
     protected $_hoard = null;
     protected $_item  = null;
 
-    public function __construct(Tgen_DnD_35_DMG $hoard) {
+    public function __construct(Tgen_DnD_35 $hoard) {
         $this->_hoard = $hoard;
     }
 

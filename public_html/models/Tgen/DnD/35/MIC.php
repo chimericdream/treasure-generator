@@ -1,14 +1,14 @@
 <?php
-class Tgen_DnD_35MIC extends Tgen_DnD_3 {
+class Tgen_DnD_35_MIC extends Tgen_DnD_35 {
     protected function _getGoods($whichList, $howMany) {
         for ($n = 1; $n <= $howMany; $n++) {
             $randNum = $this->_getDieRoll(1, 2);
             if ($randNum == 2 && $this->drac) {
-                $drac = new Tgen_DnD_3_Draconomicon($this);
+                $drac = new Tgen_DnD_30_Draconomicon($this);
                 $this->goods[] = $drac->generate();
                 unset($drac);
             } else {
-                $classname = "Tgen_DnD_35MIC_Goods_{$whichList}";
+                $classname = "Tgen_DnD_35_MIC_Goods_{$whichList}";
                 if (class_exists($classname)) {
                     $item = new $classname($this);
                     $this->goods[] = $item->generate();
@@ -22,7 +22,7 @@ class Tgen_DnD_35MIC extends Tgen_DnD_3 {
         for ($n = 1; $n <= $howMany; $n++) {
             $die = $this->_getDieRoll(1, 20);
             if (($die > 1 && $this->cursed) || !$this->cursed) { // No cursed Item
-                $classname = "Tgen_DnD_35MIC_Items_{$level}";
+                $classname = "Tgen_DnD_35_MIC_Items_{$level}";
                 if (class_exists($classname)) {
                     $item = new $classname($this);
                     $this->items[] = $item->generate();
@@ -36,9 +36,9 @@ class Tgen_DnD_35MIC extends Tgen_DnD_3 {
 
     protected function _getHalfLevItems($howMany) {
         for ($n = 1; $n <= $howMany; $n++) {
-            $item = new Tgen_DnD_35MIC_Items_Half($this);
+            $item = new Tgen_DnD_35_MIC_Items_Half($this);
             $this->items[] = $item->generate();
             unset($item);
         }
     }
-} // end Tgen_DnD_35MIC
+} // end Tgen_DnD_35_MIC

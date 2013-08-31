@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Goods_B extends Tgen_DnD_35MIC_Goods {
+class Tgen_DnD_35_MIC_Goods_B extends Tgen_DnD_35_MIC_Goods {
     public $items = array(
         'bloodstone',
         'carnelian',
@@ -42,4 +42,4 @@ class Tgen_DnD_35MIC_Goods_B extends Tgen_DnD_35MIC_Goods {
         'type' => 4,
         'mult' => 10,
     );
-} // end Tgen_DnD_35MIC_Goods_B
+} // end Tgen_DnD_35_MIC_Goods_B

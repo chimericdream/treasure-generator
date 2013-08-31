@@ -1,8 +1,8 @@
 <?php
-class Tgen_DnD_35MIC_Weapon extends Tgen_DnD_35MIC {
+class Tgen_DnD_35_MIC_Weapon extends Tgen_DnD_35_MIC {
     protected $_hoard = null;
 
-    public function __construct(Tgen_DnD_3 $hoard) {
+    public function __construct(Tgen_DnD_35 $hoard) {
         $this->_hoard = $hoard;
     }
 
@@ -535,4 +535,4 @@ class Tgen_DnD_35MIC_Weapon extends Tgen_DnD_35MIC {
             return 'shock';
         }
     }
-} // end Tgen_DnD_35MIC_Weapon
+} // end Tgen_DnD_35_MIC_Weapon

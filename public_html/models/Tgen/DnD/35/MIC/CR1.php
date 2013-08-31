@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_CR1 extends Tgen_DnD_35MIC {
+class Tgen_DnD_35_MIC_CR1 extends Tgen_DnD_35_MIC {
     public function __construct(array $options) {
         parent::__construct($options);
     } // end __construct()

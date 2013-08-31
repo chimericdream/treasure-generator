@@ -12,10 +12,10 @@ $options = array(
     'ed3ExtSize' => false,
 );
 
-$temp = new Tgen_DnD_35MIC_CR1($options);
+$temp = new Tgen_DnD_35_MIC_CR1($options);
 for ($i = 1; $i <= 25000; $i++) {
     try {
-        $treasure = new Tgen_DnD_35MIC_Items_25($temp);
+        $treasure = new Tgen_DnD_35_MIC_Items_25($temp);
         $item = $treasure->generate();
         if ($item == '') {
             throw new Exception();

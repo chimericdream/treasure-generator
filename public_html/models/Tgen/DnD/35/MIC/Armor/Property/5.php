@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Armor_Property_5 extends Tgen_DnD_35MIC_Armor_Property {
+class Tgen_DnD_35_MIC_Armor_Property_5 extends Tgen_DnD_35_MIC_Armor_Property {
     public function generate() {
         if ($this->_baseArmor['type'] == 'armor') {
             $this->_property = $this->_generateArmor();
@@ -13,13 +13,13 @@ class Tgen_DnD_35MIC_Armor_Property_5 extends Tgen_DnD_35MIC_Armor_Property {
     protected function _generateArmor() {
         $die = $this->_getDieRoll(1, 100);
         if ($die > 99) {
-            $prop3 = new Tgen_DnD_35MIC_Armor_Property_3($this->_hoard, $this->_baseArmor);
-            $prop2 = new Tgen_DnD_35MIC_Armor_Property_2($this->_hoard, $this->_baseArmor);
+            $prop3 = new Tgen_DnD_35_MIC_Armor_Property_3($this->_hoard, $this->_baseArmor);
+            $prop2 = new Tgen_DnD_35_MIC_Armor_Property_2($this->_hoard, $this->_baseArmor);
             $property = $prop3->generate() . ' and ' . $prop2->generate();
             unset($prop3, $prop2);
         } elseif ($die > 98) {
-            $prop4 = new Tgen_DnD_35MIC_Armor_Property_4($this->_hoard, $this->_baseArmor);
-            $prop1 = new Tgen_DnD_35MIC_Armor_Property_1($this->_hoard, $this->_baseArmor);
+            $prop4 = new Tgen_DnD_35_MIC_Armor_Property_4($this->_hoard, $this->_baseArmor);
+            $prop1 = new Tgen_DnD_35_MIC_Armor_Property_1($this->_hoard, $this->_baseArmor);
             $property = $prop4->generate() . ' and ' . $prop1->generate();
             unset($prop4, $prop1);
         } elseif ($die > 94) {
@@ -64,13 +64,13 @@ class Tgen_DnD_35MIC_Armor_Property_5 extends Tgen_DnD_35MIC_Armor_Property {
     protected function _generateShield() {
         $die = $this->_getDieRoll(1, 100);
         if ($die > 99) {
-            $prop3 = new Tgen_DnD_35MIC_Armor_Property_3($this->_hoard, $this->_baseArmor);
-            $prop2 = new Tgen_DnD_35MIC_Armor_Property_2($this->_hoard, $this->_baseArmor);
+            $prop3 = new Tgen_DnD_35_MIC_Armor_Property_3($this->_hoard, $this->_baseArmor);
+            $prop2 = new Tgen_DnD_35_MIC_Armor_Property_2($this->_hoard, $this->_baseArmor);
             $property = $prop3->generate() . ' and ' . $prop2->generate();
             unset($prop3, $prop2);
         } elseif ($die > 98) {
-            $prop4 = new Tgen_DnD_35MIC_Armor_Property_4($this->_hoard, $this->_baseArmor);
-            $prop1 = new Tgen_DnD_35MIC_Armor_Property_1($this->_hoard, $this->_baseArmor);
+            $prop4 = new Tgen_DnD_35_MIC_Armor_Property_4($this->_hoard, $this->_baseArmor);
+            $prop1 = new Tgen_DnD_35_MIC_Armor_Property_1($this->_hoard, $this->_baseArmor);
             $property = $prop4->generate() . ' and ' . $prop1->generate();
             unset($prop4, $prop1);
         } elseif ($die > 93) {
@@ -109,4 +109,4 @@ class Tgen_DnD_35MIC_Armor_Property_5 extends Tgen_DnD_35MIC_Armor_Property {
 
         return $property;
     }
-} // end Tgen_DnD_35MIC_Armor_Property_5
+} // end Tgen_DnD_35_MIC_Armor_Property_5

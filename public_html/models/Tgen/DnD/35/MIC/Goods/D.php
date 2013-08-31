@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Goods_D extends Tgen_DnD_35MIC_Goods {
+class Tgen_DnD_35_MIC_Goods_D extends Tgen_DnD_35_MIC_Goods {
     public $items = array(
         'large wool tapestry',
         'brass mug with jade inlays',
@@ -25,4 +25,4 @@ class Tgen_DnD_35MIC_Goods_D extends Tgen_DnD_35MIC_Goods {
         'type' => 4,
         'mult' => 100,
     );
-} // end Tgen_DnD_35MIC_Goods_D
+} // end Tgen_DnD_35_MIC_Goods_D

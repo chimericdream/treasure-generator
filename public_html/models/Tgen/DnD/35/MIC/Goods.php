@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Goods extends Tgen_DnD_35MIC {
+class Tgen_DnD_35_MIC_Goods extends Tgen_DnD_35_MIC {
     protected $_haord = null;
     public $items = array();
     public $value = array(
@@ -8,7 +8,7 @@ class Tgen_DnD_35MIC_Goods extends Tgen_DnD_35MIC {
         'mult' => 0,
     );
 
-    public function  __construct(Tgen_DnD_3 $hoard) {
+    public function  __construct(Tgen_DnD_35 $hoard) {
         $this->_hoard = $hoard;
     }
 
@@ -19,4 +19,4 @@ class Tgen_DnD_35MIC_Goods extends Tgen_DnD_35MIC {
         $value = number_format($this->_getDieRoll($this->value['dice'], $this->value['type']) * $this->value['mult']) . ' gp';
         return "{$this->items[$item]} ({$value})";
     }
-} // end Tgen_DnD_35MIC_Goods
+} // end Tgen_DnD_35_MIC_Goods

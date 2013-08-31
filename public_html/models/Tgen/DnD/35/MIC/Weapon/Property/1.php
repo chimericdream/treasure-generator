@@ -1,5 +1,5 @@
 <?php
-class Tgen_DnD_35MIC_Weapon_Property_1 extends Tgen_DnD_35MIC_Weapon_Property {
+class Tgen_DnD_35_MIC_Weapon_Property_1 extends Tgen_DnD_35_MIC_Weapon_Property {
     public function generate() {
         if ($this->_baseWeapon['type'] == 'melee') {
             $this->_property = $this->_generateMelee();
@@ -342,4 +342,4 @@ class Tgen_DnD_35MIC_Weapon_Property_1 extends Tgen_DnD_35MIC_Weapon_Property {
 
         return $enemy;
     } // end _getBaneEnemy()
-} // end Tgen_DnD_35MIC_Weapon_Property_1
+} // end Tgen_DnD_35_MIC_Weapon_Property_1

@@ -1,9 +1,9 @@
 <?php
-class Tgen_DnD_35MIC_Armor extends Tgen_DnD_35MIC {
+class Tgen_DnD_35_MIC_Armor extends Tgen_DnD_35_MIC {
     protected $_hoard = null;
     protected $_baseArmor = null;
 
-    public function __construct(Tgen_DnD_3 $hoard, array $baseArmor) {
+    public function __construct(Tgen_DnD_35 $hoard, array $baseArmor) {
         $this->_hoard = $hoard;
         $this->_baseArmor = $baseArmor;
     }
@@ -138,4 +138,4 @@ class Tgen_DnD_35MIC_Armor extends Tgen_DnD_35MIC {
             return 'sonic';
         }
     }
-} // end Tgen_DnD_35MIC_Armor
+} // end Tgen_DnD_35_MIC_Armor
