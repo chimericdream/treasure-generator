@@ -2,7 +2,7 @@
 error_reporting(-1);
 
 if (strpos($_SERVER['HTTP_HOST'], 'tgen_dev') !== false || $_SERVER['HTTP_HOST'] == 'tgen.local.dev') {
-    define('BASE_PATH',    '/Users/bill/Sites/');
+    define('BASE_PATH',    '/vagrantshare/www/');
     define('SITE_PATH',    BASE_PATH . 'tgen_dev/');
     define('PUBLIC_DIR',   SITE_PATH . 'public_html/');
     define('ROOT_DIR',     PUBLIC_DIR);
