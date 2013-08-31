@@ -1,7 +1,7 @@
 <?php
 class Tgen_DnD extends Tgen {
     const ED3_MAX_CR   = 20;
-    const ED3_MAX_MULT = 10000;
+    const ED3_MAX_MULT = 100;
 
     public    $cpValue    = 0;       // Total CP value for the hoard
 
