@@ -88,10 +88,21 @@ class Tgen_DnD extends Tgen {
         foreach ($this->tradeGoods as $item) {
             if (preg_match($pattern, $item, $matches) != 0) {
                 if ($i > 0 && $currItem == $matches['item']) {
-                    $qty += $matches['qty'];
-                    echo " --- currItem = {$currItem}; qty = {$qty}<br />";
-                    $this->tradeGoods[$currItemIndex] = $matches['item']
-                          . ' (' . $qty . $matches['therest'];
+                    if (empty($matches['qty'])) {
+                        $qty++;
+                    } else {
+                        $qty += $matches['qty'];
+                    }
+                    $this->tradeGoods[$currItemIndex] = $matches['item'];
+                    if (!empty($qty) || !empty($matches['therest'])) {
+                        if (!empty($matches['therest'])) {
+                            $this->tradeGoods[$currItemIndex] .= ' (' . $qty . $matches['therest'] . ')';
+                        } else {
+                            if ($qty > 1) {
+                                $this->tradeGoods[$currItemIndex] .= ' [Qty: ' . $qty . ']';
+                            }
+                        }
+                    }
                     unset($this->tradeGoods[$i]);
                 } else {
                     $qty = $matches['qty'];
