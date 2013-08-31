@@ -1,17 +1,7 @@
 <?php
-error_reporting(0);
-
-$ip = $_SERVER['REMOTE_ADDR'];
-$myIps = array(
-    '129.237.28.16',
-);
-
-if (in_array($ip, $myIps)) {
-    error_reporting(E_ALL);
-}
+error_reporting(-1);
 
 if (strpos($_SERVER['HTTP_HOST'], 'tgen_dev') !== false || $_SERVER['HTTP_HOST'] == 'tgen.local.dev') {
-    error_reporting(E_ALL);
     define('BASE_PATH',    '/Users/bill/Sites/');
     define('SITE_PATH',    BASE_PATH . 'tgen_dev/');
     define('PUBLIC_DIR',   SITE_PATH . 'public_html/');

@@ -1,8 +1,6 @@
 <?php
 require_once dirname(__FILE__) . '/../config.php';
 
-error_reporting(-1);
-
 $options = array();
 if (!empty($_POST)) {
     $ruleset = $_POST['ruleset'];
