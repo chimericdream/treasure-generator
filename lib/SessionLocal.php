@@ -12,19 +12,22 @@ class SessionLocal
     public static function start($name = SESSION_NAME, $savePath = '/sessions/')
     {
         if (isset($_SESSION)) {
-            require_once 'SPEAR/SpearException/SessionLocal.php';
-            throw new SpearException_SessionLocal(
-                SpearException_SessionLocal::SESSION_ALREADY_STARTED);
+            return;
+//            require_once 'SPEAR/SpearException/SessionLocal.php';
+//            throw new SpearException_SessionLocal(
+//                SpearException_SessionLocal::SESSION_ALREADY_STARTED);
         }
         if (false === ini_set('session.use_only_cookies', self::USE_ONLY_COOKIES)) {
-            require_once 'SPEAR/SpearException/SessionLocal.php';
-            throw new SpearException_SessionLocal(
-                SpearException_SessionLocal::INI_SET_FAILURE);
+            return;
+//            require_once 'SPEAR/SpearException/SessionLocal.php';
+//            throw new SpearException_SessionLocal(
+//                SpearException_SessionLocal::INI_SET_FAILURE);
         }
         if (false === ini_set('session.hash_function', self::HASH_FUNCTION)) {
-            require_once 'SPEAR/SpearException/SessionLocal.php';
-            throw new SpearException_SessionLocal(
-                SpearException_SessionLocal::INI_SET_FAILURE);
+            return;
+//            require_once 'SPEAR/SpearException/SessionLocal.php';
+//            throw new SpearException_SessionLocal(
+//                SpearException_SessionLocal::INI_SET_FAILURE);
         }
 
         //can't check return value because there is none
@@ -36,9 +39,10 @@ class SessionLocal
         if (is_dir($fullSavePath) && is_writable($fullSavePath)) {
             session_save_path($fullSavePath);
         } else {
-            require_once 'SPEAR/SpearException/SessionLocal.php';
-            throw new SpearException_SessionLocal(
-                SpearException_SessionLocal::INVALID_SAVE_PATH, $fullSavePath);
+            return;
+//            require_once 'SPEAR/SpearException/SessionLocal.php';
+//            throw new SpearException_SessionLocal(
+//                SpearException_SessionLocal::INVALID_SAVE_PATH, $fullSavePath);
         }
 
         session_name($name);
@@ -46,16 +50,18 @@ class SessionLocal
         //starting in PHP 5.3, session_start returns a real boolean
         if (PHP_VERSION >= '5.3') {
             if (!session_start()) {
-                require_once 'SPEAR/SpearException/SessionLocal.php';
-                throw new SpearException_SessionLocal(
-                    SpearException_SessionLocal::SESSION_START_FAILURE);
+                return;
+//                require_once 'SPEAR/SpearException/SessionLocal.php';
+//                throw new SpearException_SessionLocal(
+//                    SpearException_SessionLocal::SESSION_START_FAILURE);
             }
         } else {
             session_start();
             if (!isset($_SESSION)) {
-                require_once 'SPEAR/SpearException/SessionLocal.php';
-                throw new SpearException_SessionLocal(
-                    SpearException_SessionLocal::SESSION_START_FAILURE);
+                return;
+//                require_once 'SPEAR/SpearException/SessionLocal.php';
+//                throw new SpearException_SessionLocal(
+//                    SpearException_SessionLocal::SESSION_START_FAILURE);
             }
         }
     }

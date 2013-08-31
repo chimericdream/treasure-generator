@@ -1,18 +1,8 @@
 <?php
-error_reporting(0);
+error_reporting(-1);
 
-$ip = $_SERVER['REMOTE_ADDR'];
-$myIps = array(
-    '129.237.28.16',
-);
-
-if (in_array($ip, $myIps)) {
-    error_reporting(E_ALL);
-}
-
-if (strpos('tgen_dev', $_SERVER['HTTP_HOST']) !== 0 || $_SERVER['HTTP_HOST'] == 'tgen.local.dev') {
-    error_reporting(E_ALL);
-    define('BASE_PATH',    '/Users/bill/Sites/');
+if (strpos($_SERVER['HTTP_HOST'], 'tgen_dev') !== false || $_SERVER['HTTP_HOST'] == 'tgen.local.dev') {
+    define('BASE_PATH',    '/vagrantshare/www/');
     define('SITE_PATH',    BASE_PATH . 'tgen_dev/');
     define('PUBLIC_DIR',   SITE_PATH . 'public_html/');
     define('ROOT_DIR',     PUBLIC_DIR);

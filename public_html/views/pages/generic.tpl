@@ -31,6 +31,62 @@
         </footer>
         <script src="{{ js_path }}/compiled/scripts.min.js"></script>
         <script>
+            $('#ruleset').change(function(){
+                showHideRulesetInfo();
+            });
+            $('#DnD_edition').change(function(){
+                showHideDnDEditionInfo();
+            });
+
+            function showHideRulesetInfo() {
+                var val = $('#ruleset').val();
+                if (val == 'Pannotia') {
+                    $('.Pathfinder, .DnD').hide();
+                    $('.Pannotia').show();
+                    $('#generate-treasure').show();
+                } else if (val == 'Pathfinder') {
+                    $('.Pannotia, .DnD').hide();
+                    $('.Pathfinder').show();
+                    $('#generate-treasure').hide();
+                } else if (val == 'DnD') {
+                    $('.Pannotia, .Pathfinder').hide();
+                    $('.DnD').show();
+                } else {
+                    $('.Pannotia, .DnD, .Pathfinder').hide();
+                    $('#generate-treasure').hide();
+                }
+            }
+
+            function showHideDnDEditionInfo() {
+                var val = $('#DnD_edition').val();
+                if (val == '30') {
+                    $('.DnD_35_DMG, .DnD_35_MIC, .DnD_40').hide();
+                    $('.DnD_30').show();
+                    $('#generate-treasure').hide();
+                } else if (val == '35_DMG') {
+                    $('.DnD_30, .DnD_35_MIC, .DnD_40').hide();
+                    $('.DnD_35_DMG').show();
+                    $('#generate-treasure').show();
+                } else if (val == '35_MIC') {
+                    $('.DnD_30, .DnD_35_DMG, .DnD_40').hide();
+                    $('.DnD_35_MIC').show();
+                    $('#generate-treasure').show();
+                } else if (val == '40') {
+                    $('.DnD_30, .DnD_35_DMG, .DnD_35_MIC').hide();
+                    $('.DnD_40').show();
+                    $('#generate-treasure').hide();
+                } else {
+                    $('.DnD_30, .DnD_35_DMG, .DnD_35_MIC, .DnD_40').hide();
+                    $('#generate-treasure').hide();
+                }
+            }
+
+            $(document).ready(function(){
+                showHideRulesetInfo();
+                showHideDnDEditionInfo();
+            });
+        </script>
+        <script>
             var analyticsFileTypes = ['ods','pdf','doc','txt'];
             var analyticsEventTracking = 'enabled';
         </script>
