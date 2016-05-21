@@ -1,15 +1,19 @@
 <?php
-error_reporting(-1);
+$host = filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_URL);
+$debug = false;
 
-if (strpos($_SERVER['HTTP_HOST'], 'tgen_dev') !== false || $_SERVER['HTTP_HOST'] == 'tgen.local.dev') {
+if (strpos($host, 'tgen.local.dev') !== false) {
+    error_reporting(-1);
+
     define('BASE_PATH',    '/vagrantshare/www/');
     define('SITE_PATH',    BASE_PATH . 'tgen_dev/');
     define('PUBLIC_DIR',   SITE_PATH . 'public_html/');
     define('ROOT_DIR',     PUBLIC_DIR);
     define('SESSION_NAME', 'tgen');
     define('APP_DIR',      ROOT_DIR);
-    define('APP_URL',      'http://tgen.local.dev/');
+    define('APP_URL',      "http://{$host}/");
     define('SITE_URL',     APP_URL);
+    $debug = true;
 } else {
     define('BASE_PATH',    '/home/chimericdream2/');
     define('SITE_PATH',    BASE_PATH . 'tgen.worldofpannotia.com/');
@@ -50,9 +54,11 @@ $tloader = new Twig_Loader_Filesystem(VIEW_PATH);
 $twig = new Twig_Environment($tloader, array(
     'cache' => VIEW_PATH . '/compile',
     'auto_reload' => true,
-    'debug' => true,
+    'debug' => $debug,
 ));
-$twig->addExtension(new Twig_Extension_Debug());
+if ($debug) {
+    $twig->addExtension(new Twig_Extension_Debug());
+}
 
 $templatevars = array(
     'asset_path'  => ASSET_PATH,
